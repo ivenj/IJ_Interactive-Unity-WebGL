@@ -22,7 +22,7 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
-        SFXSideChainCompression();
+        //SFXSideChainCompression();
     }
 
     public void StopAll()
@@ -68,7 +68,8 @@ public class MusicManager : MonoBehaviour
 
     public void SFXSideChainCompression()
     {
-
+        //mainAudioMixer.GetFloat("MusicVolume", out float test);
+        //print(test);
         //if ()
         //{
         //    StartCoroutine(FadeMixerGroup.StartFade(mainAudioMixer, "SFXVolume", 3, -12));

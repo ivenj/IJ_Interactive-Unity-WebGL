@@ -663,7 +663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &85741949
 Transform:
   m_ObjectHideFlags: 0
@@ -2606,7 +2606,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1292696866}
     - target: {fileID: 5337747632332374645, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
         type: 3}
       propertyPath: m_Size.x
@@ -3452,7 +3452,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1458775626}
     - target: {fileID: 5337747632332374645, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
         type: 3}
       propertyPath: m_Size.x
@@ -9570,7 +9570,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1717123108}
     - target: {fileID: 5337747632332374645, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
         type: 3}
       propertyPath: m_Size.x
@@ -12935,7 +12935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManagerIsActive: 1
-  levelDebug: 0
+  levelDebug: 1
   canvasTexts: {fileID: 210122599}
 --- !u!4 &1854717604
 Transform:
@@ -13082,7 +13082,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1862335011
 Transform:
   m_ObjectHideFlags: 0
@@ -15009,7 +15009,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2129488512}
     - target: {fileID: 5337747632332374645, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
         type: 3}
       propertyPath: m_Size.x
@@ -15942,7 +15942,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TargetAudioSources.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5337747632586051574}
     - target: {fileID: 5337747632332374645, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
         type: 3}
       propertyPath: m_Size.x
@@ -16014,7 +16014,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.782
+  m_Volume: 0.74
   m_Pitch: 1
   Loop: 0
   Mute: 0
