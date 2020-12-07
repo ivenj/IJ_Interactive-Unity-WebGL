@@ -20,7 +20,7 @@ public class Menu : MonoBehaviour
     public GameObject defaultButton;
 
     //public Image blackScreen;
-    public AudioSource mouseEnter;
+    public AudioSource[] mouseEnter;
     public AudioSource mouseClick;
     public AudioSource quitGame;
     public AudioSource toggleMenu;
@@ -29,6 +29,7 @@ public class Menu : MonoBehaviour
     Scene scene1;
     Scene scene2;
     GameObject player;
+    MusicManager musicManager;
     VideoPlayer fadeToBlackVideo;
     bool menuToggled;
     bool quittingGame;
@@ -36,6 +37,7 @@ public class Menu : MonoBehaviour
     bool controllerActivated;
     bool defaultButtonSelected;
     bool selectedButtonDeselected;
+    int mouseEnterIndex = 0;
 
     void Start()
     {
@@ -50,6 +52,7 @@ public class Menu : MonoBehaviour
         player = GameObject.Find("Player");
         fadeToBlackVideo = GameObject.Find("Fade To Black Player").GetComponent<VideoPlayer>();
         fadeToBlackVideo.Pause();
+        musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>();
     }
 
     void Update()
@@ -305,6 +308,7 @@ public class Menu : MonoBehaviour
 
     public void QuitGame()
     {
+        musicManager.StopAll();
         quitGame.Play();
         StartCoroutine(QuitGameTimer());
         fadeToBlackVideo.targetCameraAlpha = 0.01f;
@@ -324,23 +328,30 @@ public class Menu : MonoBehaviour
     {
         if (quittingGame)
         {
-                    //if (scene2.isLoaded)
-                    //{
-                    //    SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
-                    //    SceneManager.UnloadSceneAsync(2);
-                    //}
+            //if (scene2.isLoaded)
+            //{
+            //    SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+            //    SceneManager.UnloadSceneAsync(2);
+            //}
 
             Camera.main.transform.Translate(new Vector3(0, 0.4f, -1f) * Time.deltaTime * 2f);
             Camera.main.transform.RotateAround(player.transform.position, Camera.main.transform.right, Time.deltaTime * 3f);
 
-            fadeToBlackVideo.targetCameraAlpha += fadeToBlackVideo.targetCameraAlpha*Time.deltaTime/2;
+            fadeToBlackVideo.targetCameraAlpha += fadeToBlackVideo.targetCameraAlpha * Time.deltaTime / 2;
         }
     }
 
     public void MouseEnter()
     {
         if (!Input.GetMouseButtonDown(0))
-            mouseEnter.Play();
+        {
+            mouseEnter[mouseEnterIndex].Play();
+            mouseEnterIndex++;
+            if (mouseEnterIndex > 5)
+            {
+                mouseEnterIndex = 0;
+            }
+        }
     }
 
     public void MouseClick()
@@ -366,5 +377,5 @@ public class Menu : MonoBehaviour
             mouseActivated = false;
         }
     }
-    
+
 }

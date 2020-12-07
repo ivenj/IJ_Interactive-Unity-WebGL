@@ -15,14 +15,16 @@ public class WwiseController : MonoBehaviour
     //public bool isStoppable = true;
     public bool eventPlaying;
 
-    TextManager textManager;
-    VideoPlayer videoPlayer;
-    PlayVideo playVideo;
-    Coroutine resetEventPlaying;
+
+    Animator playerAnim;
+    public Coroutine resetEventPlaying;
     Coroutine stopEventText;
     GameObject[] musicalMoments;
     GameObject[] televisions;
-    Animator playerAnim;
+    MusicManager musicManager;
+    PlayVideo playVideo;
+    TextManager textManager;
+    VideoPlayer videoPlayer;
 
     string[] objectTags = { "Tablet_MM", "TV_Dustnet", "TV_Swivet" };
     string[] tvTags = { "TV_Dustnet", "TV_Swivet" };
@@ -45,18 +47,18 @@ public class WwiseController : MonoBehaviour
         textManager = GetComponent<TextManager>();
         playerAnim = GameObject.Find("Android").GetComponent<Animator>();
         eventPlaying = false;
+        musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>();
     }
 
     void Update()
     {
         if (InputManager.space && isOneShot && eventPlayable)
         {
-            //PLAY AUDIO FILE
             wwiseEvent.Play();
         }
         else if (InputManager.space && !eventPlaying && eventPlayable && !isOneShot && !pressedPlay)
         {
-            //PostEvent();
+            musicManager.StopAll();
             Invoke("PostEvent", 1f);
             pressedPlay = true;
             playerAnim.SetBool("pressedPlay", pressedPlay);
@@ -70,7 +72,6 @@ public class WwiseController : MonoBehaviour
         }
         else if (InputManager.space && eventPlaying && eventPlayable && !isOneShot && !pressedPlay)
         {
-            //StopEvent();
             Invoke("StopEvent", 1f);
             pressedPlay = true;
             playerAnim.SetBool("pressedPlay", pressedPlay);
@@ -152,7 +153,7 @@ public class WwiseController : MonoBehaviour
     public void StopEvent()
     {
         //STOP AUDIO FILE
-        wwiseEvent.Stop();
+        musicManager.StopAllSlowly();
 
         eventPlaying = false;
 

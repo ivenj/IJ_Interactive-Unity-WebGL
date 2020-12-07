@@ -139,14 +139,14 @@ public class PlayerMovement : MonoBehaviour
     {
         //ZOOM - Mousewheel or Joystick 
         if (Input.GetKey(KeyCode.JoystickButton8))
-            mouseWheelInput = Input.GetAxis("RS Y") * .1f; 
-        else 
+            mouseWheelInput = Input.GetAxis("RS Y") * .1f;
+        else
             mouseWheelInput = Input.GetAxis("Mouse ScrollWheel");
 
 
         //X+Y - Mouse or Joystick 
         mouseXInput = Input.GetAxis("Mouse X");
-        
+
         if (Input.GetAxis("Mouse Y") != 0)
             mouseYInput = Input.GetAxis("Mouse Y");
         else if (!Input.GetKey(KeyCode.JoystickButton8))
@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     mainCamera.transform.RotateAround(transform.position, -mainCamera.transform.right, _mouseSensitivity * Time.deltaTime * mouseYInput);
                 }
-            } 
+            }
             //Different angles for First Person
             else if (mainCameraVector.magnitude < 2f)
             {
@@ -198,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
                 //Horizontal Mouse Movement
                 transform.RotateAround(transform.position, transform.up, _mouseSensitivity * Time.deltaTime * mouseXInput);
             }
-        } 
+        }
 
     }
 
@@ -220,17 +220,17 @@ public class PlayerMovement : MonoBehaviour
                 mainCamera.transform.Translate(Vector3.forward * scrollSpeed * Time.deltaTime * mouseWheelInput);
             }
         }
-        
+
         //First Person View with 'F'
         if (InputManager.firstPerson && transform.position.y < 1.5f && !firstPersonView)
         {
             currentCameraDistance = (transform.position - mainCamera.transform.position).magnitude;
-                
-                //transform.position.z - mainCamera.transform.position.z;
+
+            //transform.position.z - mainCamera.transform.position.z;
 
             mainCamera.transform.position = transform.position + new Vector3(0, 0.8f, 0);
             firstPersonView = true;
-        } 
+        }
         else if (firstPersonView && InputManager.firstPerson || firstPersonView && mouseWheelInput < 0)
         {
             mainCamera.transform.position = mainCamera.transform.position - mainCamera.transform.forward * currentCameraDistance;
@@ -257,7 +257,7 @@ public class PlayerMovement : MonoBehaviour
         if (SceneManager.GetSceneByBuildIndex(1).isLoaded)
         {
             levelBoundaries = 12.5f;
-        } 
+        }
         else if (SceneManager.GetSceneByBuildIndex(2).isLoaded)
         {
             levelBoundaries = 23.5f;
@@ -316,7 +316,7 @@ public class PlayerMovement : MonoBehaviour
             else
                 isTurningRight = false;
         }
-        
+
         //Animator
         playerAnim.SetBool("isWalkingForward", isWalkingForward);
         playerAnim.SetBool("isWalkingBackward", isWalkingBackward);

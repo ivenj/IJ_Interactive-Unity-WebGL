@@ -37,20 +37,6 @@ public class PlayVideo : MonoBehaviour
 
     void Update()
     {
-        //Play / Stop Video
-        //if (InputManager.space && !eventPlaying && eventPlayable && !pressedPlay)
-        //{
-        //    //StartVideo();
-        //    Invoke("StartVideo", 1f);
-        //    pressedPlay = true;
-        //}
-        //else if (InputManager.space && eventPlaying && eventPlayable)
-        //{
-        //    //StopVideo();
-        //    Invoke("StopVideo", 1f);
-        //    pressedPlay = true;
-        //}
-
         MovieMode();
     }
 

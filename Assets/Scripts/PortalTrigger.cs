@@ -28,21 +28,23 @@ public class PortalTrigger : MonoBehaviour
     bool raisePlatform;
     bool pressedPlay;     
     int flyDirection = 0;
-    
-    Transform playerPosition;
-    PlayerMovement playerMovement;
-    GameObject portalSphere;
-    PortalScript portalScript;
+
+    Animator playerAnim;
     Coroutine movePortalSphereBackCoRoutine;
     Coroutine platformRaisableCoRoutine;
+    GameObject portalSphere;
+    MusicManager musicManager;
     Rigidbody playerRb;
-    Animator playerAnim;
+    PlayerMovement playerMovement;
     PlayVideo[] videoPlayers;
+    PortalScript portalScript;
+    Transform playerPosition;
 
     #endregion
 
     void Start()
     {
+        musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>();
         playerRb = GameObject.Find("Player").GetComponent<Rigidbody>();
         playerPosition = GameObject.Find("Player").GetComponent<Transform>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
@@ -143,6 +145,7 @@ public class PortalTrigger : MonoBehaviour
         {
             if (InputManager.space)
             {
+                musicManager.StopAll();
                 PressedPlayToggle();
                 playerRb.useGravity = false;
                 Invoke("Flying", 1f);

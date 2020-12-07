@@ -52,10 +52,7 @@ public class RevealObjects : MonoBehaviour
         {
             sfx.Play();
         }
-        //revealSFX[0].Play();
-        //if (revealSFX.Length == 2) {
-        //    revealSFX[1].Play();
-        //}
+        
         Invoke("ObjectOffset", objectOffset);
     }
 
