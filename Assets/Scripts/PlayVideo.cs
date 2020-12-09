@@ -11,7 +11,7 @@ public class PlayVideo : MonoBehaviour
 
     VideoPlayer videoPlayer;
     TextManager textManager;
-    WwiseController wwiseController;
+    public WwiseController wwiseController;
     PlayerMovement playerMovement;
     Coroutine resetPlayable;
     Coroutine disableMovieModeText;
@@ -76,7 +76,6 @@ public class PlayVideo : MonoBehaviour
 
     public void StopVideo()
     {
-        print("Stopped Video");
         videoPlayer.Stop();
         eventPlaying = false;
         pressedPlay = false;
@@ -151,7 +150,6 @@ public class PlayVideo : MonoBehaviour
 
     IEnumerator ResetPlayable()
     {
-        print("resetPlayable CoRoutine started");
         float clipLength = (float)videoPlayer.length;
         yield return new WaitForSeconds(clipLength);
         eventPlaying = false;

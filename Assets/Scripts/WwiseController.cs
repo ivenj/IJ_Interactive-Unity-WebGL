@@ -148,6 +148,8 @@ public class WwiseController : MonoBehaviour
             else if (InputManager.joystickInput)
                 textManager.textTarget.text = "[X] to stop '" + eventName + "'";
         }
+
+        musicManager.StartSideChainCompression();
     }
 
     public void StopEvent()
@@ -169,6 +171,8 @@ public class WwiseController : MonoBehaviour
         {
             stopEventText = StartCoroutine(StopEventText());
         }
+
+        musicManager.EndSideChainCompression();
     }
 
     IEnumerator EventPlaying()
@@ -179,6 +183,7 @@ public class WwiseController : MonoBehaviour
             textManager.textTarget.text = "[Space] to play '" + eventName + "'";
         else if (InputManager.joystickInput)
             textManager.textTarget.text = "[X] to play '" + eventName + "'";
+        musicManager.EndSideChainCompression();
     }
 
     IEnumerator StopEventText()

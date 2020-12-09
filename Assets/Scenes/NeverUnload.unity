@@ -663,7 +663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &85741949
 Transform:
   m_ObjectHideFlags: 0
@@ -1504,7 +1504,7 @@ MonoBehaviour:
   moveAble: 1
   lookAble: 1
   mouseSensitivitySlider: {fileID: 116091617}
-  mouseSensitivity: 60
+  mouseSensitivity: 75
   mouseYLimitUp: 90
   mouseYLimitDown: 25
   scrollSpeed: 40
@@ -1513,6 +1513,7 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   gameManager: {fileID: 0}
   portalTrigger: {fileID: 659635166}
+  portalScript: {fileID: 1644573947}
   isWalkingForward: 0
   isWalkingBackward: 0
   isRunningForward: 0
@@ -4646,6 +4647,113 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642573371}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &644528977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644528981}
+  - component: {fileID: 644528980}
+  - component: {fileID: 644528979}
+  - component: {fileID: 644528978}
+  - component: {fileID: 644528982}
+  m_Layer: 0
+  m_Name: Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &644528978
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644528977}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &644528979
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644528977}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f493e052410449f4cbec17c5350735e9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &644528980
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644528977}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &644528981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644528977}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 25, y: 0.5, z: 25}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &644528982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644528977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0c82a2d51583141a49da12ef712997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portalScript: {fileID: 1644573947}
 --- !u!1 &658016013
 GameObject:
   m_ObjectHideFlags: 0
@@ -5048,7 +5156,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 2859fae2335d52f4082163d87ef9c7e9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.847
+  m_Volume: 0.89
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5242,7 +5350,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 915f698a4a934e34ba8d7b9aa4851ebd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8403,7 +8511,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4000496179814477561, guid: 23a1c23cada9f9a4297c5b6ac36877de,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 38de0d54650488d488c8278292b3c8e3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b3b7035b238195f47a59281ba71e2930, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.815
   m_Pitch: 1
@@ -9186,6 +9294,7 @@ MonoBehaviour:
   creditsText: {fileID: 658016016}
   infoText: {fileID: 496987668}
   defaultButton: {fileID: 2035294660}
+  mainAudioMixer: {fileID: 24100000, guid: 23a1c23cada9f9a4297c5b6ac36877de, type: 2}
   mouseEnter:
   - {fileID: 1129965221}
   - {fileID: 1129965220}
@@ -9196,6 +9305,12 @@ MonoBehaviour:
   mouseClick: {fileID: 1129965215}
   quitGame: {fileID: 1129965214}
   toggleMenu: {fileID: 1129965213}
+  PlayVideos:
+  - {fileID: 5337747632586051568}
+  - {fileID: 1292696859}
+  - {fileID: 1717123101}
+  - {fileID: 1458775620}
+  - {fileID: 2129488506}
   isWalkingForward: 0
   isWalkingBackward: 0
   isRunningForward: 0
@@ -9905,6 +10020,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1292696859 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 287559069, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 390700617}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292696856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1517705389f1ed44bbc8c0d3434e82e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1292696860 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 287559064, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
@@ -10267,6 +10394,7 @@ MonoBehaviour:
   levelObjects_2: {fileID: 1862335010}
   revealSFX:
   - {fileID: 40460536210078824}
+  portalScript: {fileID: 1644573947}
   revealTime: 2
   objectOffset: 0.275
 --- !u!1 &1340690894
@@ -10821,6 +10949,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: -0.000015258789}
+--- !u!114 &1458775620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 287559069, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 504450531}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458775616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1517705389f1ed44bbc8c0d3434e82e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1458775621 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 287559064, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
@@ -11493,6 +11633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wwiseEvent_SFX: {fileID: 1644573952}
+  scenesLoaded: 1
 --- !u!114 &1644573948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12194,6 +12335,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1717123101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 287559069, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1170385358}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717123098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1517705389f1ed44bbc8c0d3434e82e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1717123102 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 287559064, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
@@ -12937,6 +13090,7 @@ MonoBehaviour:
   levelManagerIsActive: 1
   levelDebug: 1
   canvasTexts: {fileID: 210122599}
+  portalScript: {fileID: 1644573947}
 --- !u!4 &1854717604
 Transform:
   m_ObjectHideFlags: 0
@@ -12968,6 +13122,7 @@ MonoBehaviour:
   levelObjects_2: {fileID: 40460536210078821}
   revealSFX:
   - {fileID: 1854717607}
+  portalScript: {fileID: 1644573947}
   revealTime: 3
   objectOffset: 0.275
 --- !u!82 &1854717607
@@ -13082,7 +13237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1862335011
 Transform:
   m_ObjectHideFlags: 0
@@ -15067,6 +15222,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: -0.000015258789}
+--- !u!114 &2129488506 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 287559069, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2129488501}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129488503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1517705389f1ed44bbc8c0d3434e82e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2129488507 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 287559064, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
@@ -15272,7 +15439,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 1499645786f165f40b5d10e00d65a6cd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.541
+  m_Volume: 0.606
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15989,6 +16156,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5337747632586051568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 287559069, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5337747632586051564}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337747632586051565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1517705389f1ed44bbc8c0d3434e82e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5337747632586051569 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 287559064, guid: 0bed7f05ab05b014c8dc2058f4fb9d1c,

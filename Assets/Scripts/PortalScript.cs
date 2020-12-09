@@ -7,6 +7,7 @@ using TMPro;
 public class PortalScript : MonoBehaviour
 {
     public AudioSource wwiseEvent_SFX;
+    public int scenesLoaded = 1;
 
     WwiseController wwiseController;
     PortalTrigger portalTrigger;
@@ -41,7 +42,6 @@ public class PortalScript : MonoBehaviour
         {
             MovePortalSphereBack();
         }
-
     }
 
     public void TriggerEnter()
@@ -73,6 +73,7 @@ public class PortalScript : MonoBehaviour
         wwiseEvent_SFX.Play();
         sendPlayerDown = StartCoroutine(SendPlayerDown());
         scenesChanged = true;
+        scenesLoaded++;
     }
 
     void ChangeToScene1()
@@ -84,6 +85,7 @@ public class PortalScript : MonoBehaviour
         wwiseEvent_SFX.Play();
         sendPlayerDown = StartCoroutine(SendPlayerDown());
         scenesChanged = true;
+        scenesLoaded++;
     }
 
     IEnumerator SendPlayerDown()

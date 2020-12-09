@@ -146,6 +146,7 @@ public class PortalTrigger : MonoBehaviour
             if (InputManager.space)
             {
                 musicManager.StopAll();
+                musicManager.EndSideChainCompression();
                 PressedPlayToggle();
                 playerRb.useGravity = false;
                 Invoke("Flying", 1f);

@@ -22,7 +22,7 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
-        //SFXSideChainCompression();
+
     }
 
     public void StopAll()
@@ -58,6 +58,7 @@ public class MusicManager : MonoBehaviour
         foreach (WwiseController musicTrack in musicTracks)
         {
             musicTrack.wwiseEvent.Stop();
+            //EndSideChainCompression();
         }
     }
 
@@ -66,13 +67,13 @@ public class MusicManager : MonoBehaviour
         mainAudioMixer.SetFloat(targetParameter, 0);
     }
 
-    public void SFXSideChainCompression()
+    public void StartSideChainCompression()
     {
-        //mainAudioMixer.GetFloat("MusicVolume", out float test);
-        //print(test);
-        //if ()
-        //{
-        //    StartCoroutine(FadeMixerGroup.StartFade(mainAudioMixer, "SFXVolume", 3, -12));
-        //}
+        StartCoroutine(FadeMixerGroup.StartFade(mainAudioMixer, "AmbienceVolume", 3, -1));
+    }
+
+    public void EndSideChainCompression()
+    {
+        StartCoroutine(FadeMixerGroup.StartFade(mainAudioMixer, "AmbienceVolume", 6, 1));
     }
 }

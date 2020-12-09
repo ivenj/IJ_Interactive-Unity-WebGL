@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
     //Misc Variables
     public GameManager gameManager;
     public GameObject portalTrigger;
+    public PortalScript portalScript;
 
     PortalTrigger _portalTrigger;
     Rigidbody playerRb;
@@ -228,7 +229,7 @@ public class PlayerMovement : MonoBehaviour
 
             //transform.position.z - mainCamera.transform.position.z;
 
-            mainCamera.transform.position = transform.position + new Vector3(0, 0.8f, 0);
+            mainCamera.transform.position = transform.position + new Vector3(0, 1.2f, 0.4f);
             firstPersonView = true;
         }
         else if (firstPersonView && InputManager.firstPerson || firstPersonView && mouseWheelInput < 0)
@@ -256,7 +257,10 @@ public class PlayerMovement : MonoBehaviour
         //Change boundary depending on Scene
         if (SceneManager.GetSceneByBuildIndex(1).isLoaded)
         {
-            levelBoundaries = 12.5f;
+            if (portalScript.scenesLoaded == 1) 
+                levelBoundaries = 12.5f;
+            else if (portalScript.scenesLoaded > 1)
+                levelBoundaries = 24.9f;
         }
         else if (SceneManager.GetSceneByBuildIndex(2).isLoaded)
         {

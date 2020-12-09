@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,12 +20,13 @@ public class Menu : MonoBehaviour
     public TextMeshProUGUI infoText;
     public GameObject defaultButton;
 
-    //public Image blackScreen;
+    public AudioMixer mainAudioMixer;
     public AudioSource[] mouseEnter;
     public AudioSource mouseClick;
     public AudioSource quitGame;
     public AudioSource toggleMenu;
     //public AudioSource stopAllEvents;
+    public PlayVideo[] PlayVideos;
 
     Scene scene1;
     Scene scene2;
@@ -309,6 +311,15 @@ public class Menu : MonoBehaviour
     public void QuitGame()
     {
         musicManager.StopAll();
+        foreach (PlayVideo video in PlayVideos)
+        {
+            if (video.wwiseController.eventPlaying)
+            {
+                video.ExternalVideoStop();
+            }
+        }
+        StartCoroutine(FadeMixerGroup.StartFade(mainAudioMixer, "AmbienceVolume", 5, -80));
+
         quitGame.Play();
         StartCoroutine(QuitGameTimer());
         fadeToBlackVideo.targetCameraAlpha = 0.01f;
@@ -319,7 +330,7 @@ public class Menu : MonoBehaviour
 
     IEnumerator QuitGameTimer()
     {
-        yield return new WaitForSeconds(9.7f);
+        yield return new WaitForSeconds(15.0f);
         Application.Quit();
         print("Application Quit");
     }

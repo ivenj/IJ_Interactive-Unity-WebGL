@@ -11,6 +11,7 @@ public class RevealObjects : MonoBehaviour
     public GameObject levelObjects_2;
 
     public AudioSource[] revealSFX;
+    public PortalScript portalScript;
 
     public float revealTime = 2f;
     public float objectOffset;
@@ -38,7 +39,8 @@ public class RevealObjects : MonoBehaviour
                 Invoke("RevealObject", revealTime);
                 objectsRevealed_1 = true;
             }
-            if (SceneManager.GetSceneByBuildIndex(2).isLoaded && !objectsRevealed_2)
+            if ((SceneManager.GetSceneByBuildIndex(2).isLoaded && !objectsRevealed_2)
+                || (portalScript.scenesLoaded > 1 && !objectsRevealed_2))
             {
                 Invoke("RevealObject", revealTime);
                 objectsRevealed_2 = true;
@@ -52,17 +54,17 @@ public class RevealObjects : MonoBehaviour
         {
             sfx.Play();
         }
-        
+
         Invoke("ObjectOffset", objectOffset);
     }
 
     void ObjectOffset()
     {
-        if (SceneManager.GetSceneByBuildIndex(1).isLoaded)
+        if (portalScript.scenesLoaded == 1)
         {
             levelObjects_1.SetActive(true);
         }
-        else if (SceneManager.GetSceneByBuildIndex(2).isLoaded)
+        else if (portalScript.scenesLoaded > 1)
         {
             levelObjects_2.SetActive(true);
         }
